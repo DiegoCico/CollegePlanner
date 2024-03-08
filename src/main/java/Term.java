@@ -1,3 +1,4 @@
+import java.awt.image.AreaAveragingScaleFilter;
 import java.util.ArrayList;
 
 public class Term {
@@ -6,13 +7,13 @@ public class Term {
     private ArrayList<Course> courses;
 
     public Term(){
-        this("",0000,new ArrayList<>());
+        this("",0000);
     }
 
-    public Term(String season, int year, ArrayList<Course> courses){
+    public Term(String season, int year){
         this.season = season;
         this.year = year;
-        this. courses = courses;
+        this. courses = new ArrayList<>();
     }
 
     public void addCourse(Course course){ courses.add(course); }
@@ -31,5 +32,9 @@ public class Term {
     public int getYear() { return year; }
     public ArrayList<Course> getCourses() { return courses; }
 
+    @Override
+    public String toString() {
+        return season + " " + year + " " + courses;
+    }
 
 }
